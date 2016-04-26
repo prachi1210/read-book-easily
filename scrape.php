@@ -1,27 +1,30 @@
 <?php
-
-	function get_curl($url)
+	require 'inc/function.inc.php';
+	if(isset($_POST['text']))
 	{
-		$curl_handle=curl_init();
-		
-		curl_setopt($curl_handle, CURLOPT_URL, $url);
-		curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 5);
-		$result= curl_exec($curl_handle);
-
-		return $result;
-	}
-	function scrape_between($data, $start, $end)
-	{
-        $data = stristr($data, $start); 
-        $data = substr($data, strlen($start));  
-        $stop = stripos($data, $end);   
-        $data = substr($data, 0, $stop);   
-        return $data; 
-    }	
-
-	$res = get_curl("http://www.bookrix.com/book.html?bookID=mrgum56_1323103158.4947938919");
-	$scraped_data= scrape_between($res,"Chapter 1", "All Rights Reserved");
+		$url=$_POST['url'];
+		echo $url;
+		$res = get_curl($url);
+		$scraped_data= scrape_between($res,"Chapter 1", "All Rights Reserved");
 	
-	echo $scraped_data;
+		echo $scraped_data;
+	}
+	require 'inc/layout/header.inc.php';
+	require 'inc/layout/navbar.inc.php';	
+?>
+  <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="upload-popup">
+                    <form action="" method="POST" >
+                        <input type="text" name="url">
+                        <input type="submit" class="btn btn-warning" value="Go">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<?php
+    require 'inc/layout/footer.inc.php';
 ?>
