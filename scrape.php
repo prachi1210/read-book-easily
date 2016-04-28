@@ -1,30 +1,95 @@
 <?php
 	require 'inc/function.inc.php';
-	if(isset($_POST['text']))
+	if(isset($_POST['url']))
 	{
 		$url=$_POST['url'];
-		echo $url;
 		$res = get_curl($url);
 		$scraped_data= scrape_between($res,"Chapter 1", "All Rights Reserved");
 	
-		echo $scraped_data;
+		echo  stripslashes(mb_convert_encoding($scraped_data,"HTML-ENTITIES", "UTF-8"));
 	}
-	require 'inc/layout/header.inc.php';
-	require 'inc/layout/navbar.inc.php';	
+		
 ?>
-  <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <div class="upload-popup">
-                    <form action="" method="POST" >
-                        <input type="text" name="url">
-                        <input type="submit" class="btn btn-warning" value="Go">
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="author" content="">
+    <meta name="description" content="">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>read book easily</title>
 
-<?php
-    require 'inc/layout/footer.inc.php';
-?>
+    <style>
+        .github-corner:hover .octo-arm 
+        {
+            animation: octocat-wave 560ms ease-in-out
+        }
+        @keyframes octocat-wave 
+        {
+            0%, 100% {
+                transform: rotate(0)
+            }
+            20%,
+            60% {
+                transform: rotate(-25deg)
+            }
+            40%,
+            80% {
+                transform: rotate(10deg)
+            }
+        }
+        @media (max-width: 500px) 
+        {
+            .github-corner:hover .octo-arm 
+            {
+                animation: none
+            }
+            .github-corner .octo-arm 
+            {
+                animation: octocat-wave 560ms ease-in-out
+            }
+        }
+    </style>
+</head>
+body bgcolor="#98AFC7">
+    <a href="https://github.com/prachi1210/duckduckgo-word-meaning" class="github-corner" target="_blank">
+        <svg width="100px" height="100px" viewBox="0 0 250 250" style="position: fixed; top: 0px; right: 0px; border: 0px;">
+            <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z" fill="#111"></path>
+            <path class="octo-arm" d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="#ffffff" style="transform-origin: 130px 106px;"></path>
+            <path class="octo-body" d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="#ffffff"></path>
+        </svg>
+    </a>
+    <center>            
+        <h1><font face ="Tw Cen MT" color="#151b54">Read Book easily</h1>
+        <h3><font face ="Tw Cen MT" color="#151b54">Powered By</h3>
+        <img src="imag/whatsapp.png" alt="DuckDuckGo">
+    </center>
+    <br>
+
+  <table width="300" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#cccccc">
+        <tr>
+            <form method="POST">
+                <td>
+                    <table width="100%" border="0"  cellspacing="1" bgcolor="#ffffff">
+                        <tr>
+                            <td colspan="3"><strong><center>Enter word definition to search</cemter></strong></td>
+                        </tr>
+                        <tr>
+                            <td width="78">URL</td>
+                            <td width="6">:</td>
+                            <td width="294"><input name="url" type="text" id=urlword"></td>
+                        </tr>
+                        <tr></tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td><input type="submit" name="Submit" value="GO"></td>
+                        </tr>
+                    </table>
+                </td>
+            </form>
+        </tr>
+    </table>
+</body>
+</html>
