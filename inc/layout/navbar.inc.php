@@ -34,7 +34,7 @@
                     </li>
                     <li>
                         You simply need to enter the URL of the book containing the bookid.
-                        <pre>Example: When you open 'Of Mice and Men' on BookRix,<br>URL in task bar is: "http://www.bookrix.com/book.html?bookID=kuroi.zetsubo_1316643307.5298490524#1512,504,2106"<br>URL you need to enter is "http://www.bookrix.com/book.html?bookID=kuroi.zetsubo_1316643307.529849052"<br> ie. exclude the '#' sign.
+                        <pre>Example: When you open 'Of Mice and Men' on BookRix,<br>URL in task bar is: "http://www.bookrix.com/book.html?bookID=kuroi.zetsubo_1316643307.5298490524#1512,504,2106"<br>URL you need to enter is "http://www.bookrix.com/book.html?bookID=kuroi.zetsubo_1316643307.5298490524"<br> ie. exclude the '#' sign.
                         </pre>
 
                  </ul>  
