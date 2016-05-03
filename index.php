@@ -8,7 +8,7 @@
 		$url=$_POST['url'];
        // echo $url;
 		$res = get_curl($url);
-		$scraped_data= scrape_between($res,"Chapter 1", "All Rights Reserved");
+		$scraped_data= scrape_between($res,"more ebooks", "All Rights Reserved");
 	
 	}
 		
